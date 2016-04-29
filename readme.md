@@ -54,4 +54,6 @@ animation speed
       speed : 500,  
     },
 
-![img](https://github.com/sujkh85/ReactFloatButton/blob/master/img.png?raw=true)
+Image
+-----
+![img](https://github.com/sujkh85/ReactFloatButton/blob/master/demo.png?raw=true)
