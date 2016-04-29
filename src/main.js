@@ -8,7 +8,7 @@ var Main = React.createClass({
   actionChildren2(){
     console.log('actionChildren2');
   },
-  //floatButtonSetting
+  //floatButtonSetting please only touch buttonDistance,speed
   FBS:{
     showFlag:false,
     isFirst : true,
@@ -17,7 +17,7 @@ var Main = React.createClass({
     top : 0,
     childrenLength : 0,
     buttonDistance : 80,
-
+    speed :500
   },
   actionFloatButton(event){
     if(this.FBS.isFirst){
@@ -38,12 +38,11 @@ var Main = React.createClass({
       for(count ; count < this.FBS.childrenLength; count++){
         var targetTop = this.FBS.top - this.FBS.buttonDistance * count;
         var child = this.FBS.tag.parentNode.childNodes[count];
-        //top속성이 없기 때문에 부여한다.메인버튼zIndex는 100
         $(child).css('top',$(child).offset().top).css('z-index',100-count);
 
         $(child).stop().animate({
             'top':targetTop
-        }, 300);
+        }, this.FBS.speed);
       }
       this.FBS.target
         .css('transition','all 0.3s')
@@ -55,7 +54,7 @@ var Main = React.createClass({
       for(count ; count < this.FBS.childrenLength; count++){
         $(this.FBS.tag.parentNode.childNodes[count]).stop().animate({
             'top':this.FBS.top
-        }, 500);
+        }, this.FBS.speed);
       }
       this.FBS.target.css('transition','all 0.3s').css('transform','rotateZ(0deg)');
     }
