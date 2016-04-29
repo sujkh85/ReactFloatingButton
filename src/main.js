@@ -8,41 +8,56 @@ var Main = React.createClass({
   actionChildren2(){
     console.log('actionChildren2');
   },
-  showFloatButtonFlag:false,
+  //floatButtonSetting
+  FBS:{
+    showFlag:false,
+    isFirst : true,
+    tag : {},
+    target : {},
+    top : 0,
+    childrenLength : 0,
+    buttonDistance : 80,
+
+  },
   actionFloatButton(event){
-    const tag = event.currentTarget
-    const target = $(tag);
-    const top = target.offset().top;
-    const childrenLength = tag.parentNode.childNodes.length;
-    //setting
-    const buttonDistance = 80;
-    const childrenCorrection = 10;
+    if(this.FBS.isFirst){
+      this.FBS.isFirst = false
+      this.FBS.tag = event.currentTarget
+      this.FBS.target = $(this.FBS.tag);
+      this.FBS.top
+        = this.FBS.target.offset().top;
+      this.FBS.childrenLength
+        = this.FBS.tag.parentNode.childNodes.length;
+    }
+
     var count = 1;
 
     if(!this.showFloatButtonFlag){
-      this.showFloatButtonFlag = true;
+      this.floatButtonSetting.showFlag = true;
 
-      for(count ; count < childrenLength; count++){
-        var targetTop = top - buttonDistance * count;
-        var child = tag.parentNode.childNodes[count];
+      for(count ; count < this.FBS.childrenLength; count++){
+        var targetTop = this.FBS.top - this.FBS.buttonDistance * count;
+        var child = this.FBS.tag.parentNode.childNodes[count];
         //top속성이 없기 때문에 부여한다.메인버튼zIndex는 100
         $(child).css('top',$(child).offset().top).css('z-index',100-count);
 
-        $(tag.parentNode.childNodes[count]).stop().animate({
+        $(child).stop().animate({
             'top':targetTop
         }, 300);
       }
-      target.css('transition','all 0.3s').css('transform','rotateZ(-45deg)');
+      this.FBS.target
+        .css('transition','all 0.3s')
+        .css('transform','rotateZ(-45deg)');
     }
     else{
-      this.showFloatButtonFlag = false;
+      this.floatButtonSetting.showFlag = false;
 
-      for(count ; count < childrenLength; count++){
-        $(tag.parentNode.childNodes[count]).stop().animate({
-            'top':top +childrenCorrection
+      for(count ; count < this.FBS.childrenLength; count++){
+        $(this.FBS.tag.parentNode.childNodes[count]).stop().animate({
+            'top':this.FBS.top
         }, 500);
       }
-      target.css('transition','all 0.3s').css('transform','rotateZ(0deg)');
+      this.FBS.target.css('transition','all 0.3s').css('transform','rotateZ(0deg)');
     }
   },
   render(){

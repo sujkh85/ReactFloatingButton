@@ -8,9 +8,9 @@ Start
 
 Dependencies
 ----------
-    jquery@1.12.3 or jquery@2.2.3
-    react@0.14.8
-
+    [jquery@1.12.3 or jquery@2.2.3](https://jquery.com/)
+    [react@0.14.8](https://facebook.github.io/react/index.html)
+    [Font-Awesome](https://fortawesome.github.io/Font-Awesome)
 Use
 -----------
     if you use react-float-button in project
