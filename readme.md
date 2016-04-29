@@ -53,3 +53,5 @@ animation speed
     FBS:{
       speed : 500,  
     },
+
+![img](https://github.com/sujkh85/ReactFloatButton/blob/master/img.png?raw=true)
