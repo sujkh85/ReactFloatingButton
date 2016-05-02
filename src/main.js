@@ -10,12 +10,14 @@ var Main = React.createClass({
   },
   //floatButtonSetting please only touch buttonDistance,speed
   FBS:{
+    //autoSetting please don't touch
     showFlag:false,
     isFirst : true,
     tag : {},
     target : {},
     top : 0,
     childrenLength : 0,
+    //userSetting
     buttonDistance : 80,
     speed :500
   },
@@ -32,12 +34,13 @@ var Main = React.createClass({
 
     var count = 1;
 
-    if(!this.showFloatButtonFlag){
-      this.floatButtonSetting.showFlag = true;
+    if(!this.FBS.showFlag){
+      this.FBS.showFlag = true;
 
       for(count ; count < this.FBS.childrenLength; count++){
         var targetTop = this.FBS.top - this.FBS.buttonDistance * count;
         var child = this.FBS.tag.parentNode.childNodes[count];
+
         $(child).css('top',$(child).offset().top).css('z-index',100-count);
 
         $(child).stop().animate({
@@ -49,7 +52,7 @@ var Main = React.createClass({
         .css('transform','rotateZ(-45deg)');
     }
     else{
-      this.floatButtonSetting.showFlag = false;
+      this.FBS.showFlag = false;
 
       for(count ; count < this.FBS.childrenLength; count++){
         $(this.FBS.tag.parentNode.childNodes[count]).stop().animate({
