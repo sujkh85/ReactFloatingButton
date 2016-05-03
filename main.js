@@ -1,12 +1,7 @@
 
 
 var Main = React.createClass({
-  actionChildren1(){
-    console.log('actionChildren1');
-  },
-  actionChildren2(){
-    console.log('actionChildren2');
-  },
+
   //floatButtonSetting
   FBS:{
     //autoSetting please don't touch
@@ -26,7 +21,13 @@ var Main = React.createClass({
       fontSize:30
     },
     //up down right left effect
-    effect:'up'
+    effect:'right'
+  },
+  actionChildren1(){
+    console.log('actionChildren1');
+  },
+  actionChildren2(){
+    console.log('actionChildren2');
   },
   actionFloatButton(event){
     if(this.FBS.isFirst){
@@ -70,7 +71,7 @@ var Main = React.createClass({
               'top':location
           }, this.FBS.speed);
         }
-        else if('right' === this.FBS.effect){
+        else if('left' === this.FBS.effect){
           location = this.FBS.left - this.FBS.buttonDistance * count;
           child = this.FBS.tag.parentNode.childNodes[count];
           $(child).css('left',$(child).offset().left).css('z-index',100-count);
@@ -79,7 +80,7 @@ var Main = React.createClass({
               'left':location
           }, this.FBS.speed);
         }
-        else if('left' === this.FBS.effect){
+        else if('right' === this.FBS.effect){
           location = this.FBS.left + this.FBS.buttonDistance * count;
           child = this.FBS.tag.parentNode.childNodes[count];
           $(child).css('left',$(child).offset().left).css('z-index',100-count);
@@ -126,10 +127,10 @@ var Main = React.createClass({
             style={this.FBS.buttonStyle} onClick={this.actionFloatButton} ></FloatingButtonMain>
           <FloatingButtonChildren
             style={this.FBS.buttonStyle}
-            iconClass='fa fa-bolt' onClick={this.actionChildren1}
+            iconClass='fa fa-cog' onClick={this.actionChildren1}
             ></FloatingButtonChildren>
             <FloatingButtonChildren
-              style={this.FBS.buttonStyle} iconClass='fa fa-eye' onClick={this.actionChildren2}
+              style={this.FBS.buttonStyle} iconClass='fa fa-wrench' onClick={this.actionChildren2}
               ></FloatingButtonChildren>
         </FloatingButtonContainer>
       </div>
