@@ -73,4 +73,4 @@ animation direction
 Image
 -----
 ![img](https://github.com/sujkh85/ReactFloatButton/blob/master/demo.png?raw=true)
-![img2](https://github.com/sujkh85/ReactFloatButton/blob/master/demo1.png?raw=true)
+![img2](https://github.com/sujkh85/ReactFloatButton/blob/master/demo2.png?raw=true)
