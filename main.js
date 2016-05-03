@@ -20,6 +20,11 @@ var Main = React.createClass({
       height:60,
       fontSize:30
     },
+    labelSetting:{
+      labelStyle:{color:'blue'},
+      labelPostion:'up',
+      labelDistance:100
+    },
     //up down right left effect
     effect:'up'
   },
@@ -124,14 +129,22 @@ var Main = React.createClass({
 
         <FloatingButtonContainer targetId='floatingPostion'>
           <FloatingButtonMain
-            style={this.FBS.buttonStyle} onClick={this.actionFloatButton} ></FloatingButtonMain>
+            style={this.FBS.buttonStyle} onClick={this.actionFloatButton} />
           <FloatingButtonChildren
             style={this.FBS.buttonStyle}
             iconClass='fa fa-cog' onClick={this.actionChildren1}
-            ></FloatingButtonChildren>
-            <FloatingButtonChildren
-              style={this.FBS.buttonStyle} iconClass='fa fa-wrench' onClick={this.actionChildren2}
-              ></FloatingButtonChildren>
+            label='Setting'
+            labelStyle={this.FBS.labelSetting.labelStyle}
+            labelPostion={this.FBS.labelSetting.labelPostion}
+            labelDistance={this.FBS.labelSetting.labelDistance}
+            />
+          <FloatingButtonChildren
+            style={this.FBS.buttonStyle} iconClass='fa fa-wrench' onClick={this.actionChildren2}
+            label='Ranch'
+            labelStyle={this.FBS.labelSetting.labelStyle}
+            labelPostion={this.FBS.labelSetting.labelPostion}
+            labelDistance={this.FBS.labelSetting.labelDistance}
+            />
         </FloatingButtonContainer>
       </div>
     );
@@ -186,20 +199,59 @@ var FloatingButtonMain = React.createClass({
 })
 
 var FloatingButtonChildren = React.createClass({
+  over(event){
+    //console.log(event.target.parentNode);
+    //const target = $(event.target.parentNode.parentNode);
+    const children = event.target.parentNode.parentNode.lastChild;
+
+
+    if('right' === this.props.labelPostion){
+      $(children).css('left',$(event.target).offset().left + this.props.labelDistance).css('top',$(event.target).offset().top).css('display','block')
+    }
+    else if('left' === this.props.labelPostion){
+      $(children).css('left',$(event.target).offset().left - this.props.labelDistance).css('top',$(event.target).offset().top).css('display','block')
+    }
+    else if('up' === this.props.labelPostion){
+      $(children).css('top',$(event.target).offset().top + this.props.labelDistance).css('left',$(event.target.parentNode.parentNode).offset().left).css('display','block')
+    }
+    else if('down' === this.props.labelPostion){
+      $(children).css('top',$(event.target).offset().top - this.props.labelDistance).css('left',$(event.target.parentNode.parentNode).offset().left).css('display','block')
+    }
+
+
+
+  },
+  out(event){
+    const children = event.target.parentNode.parentNode.lastChild;
+    $(children).css('display','none');
+  },
   render(){
     //default style
     var styles = {width:90,height:90,backgroundColor:'#4dd0e1',position:'fixed',zIndex:1,borderRadius:'50%',display:'table',color:'white',fontSize:40,boxShadow: '10px 10px 20px 5px grey'}
     //changed style
     var doneStyles = Object.assign({}, styles, this.props.style);
+
+    //default labelStyles
+    var labelStyles = {
+      display:'none',
+      color:'red',
+      position:'fixed',
+      boxShadow: '10px 10px 20px 5px grey'
+    }
+
+    var doneLabelStyles = Object.assign({}, labelStyles, this.props.labelStyle);
     //default icon
     var iconClass = this.props.iconClass || 'fa fa-bolt';
 
     return(
-      <div style={doneStyles} onClick={this.props.onClick} className={this.props.className}>
-        <div style={{display:'table-cell',verticalAlign:'middle',textAlign:'center'}}>
-          <i className={iconClass} aria-hidden="true"></i>
+        <div style={doneStyles} onClick={this.props.onClick} className={this.props.className} >
+          <div style={{display:'table-cell',verticalAlign:'middle',textAlign:'center'}}>
+            <i className={iconClass}
+              aria-hidden="true"
+              onMouseOver={this.over} onMouseOut={this.out}></i>
+          </div>
+          <div style={doneLabelStyles}>{this.props.label}</div>
         </div>
-      </div>
     );
   }
 })

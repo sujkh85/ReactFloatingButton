@@ -1,7 +1,7 @@
 Start
 ----------
-    git clone https://github.com/sujkh85/ReactFloatButton.git
-    cd ReactFloatButton
+    git clone https://github.com/sujkh85/ReactFloatingButton.git
+    cd ReactFloatingButton
     npm install
     npm start
 
