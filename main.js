@@ -21,7 +21,7 @@ var Main = React.createClass({
       fontSize:30
     },
     //up down right left effect
-    effect:'right'
+    effect:'up'
   },
   actionChildren1(){
     console.log('actionChildren1');
