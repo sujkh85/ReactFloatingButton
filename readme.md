@@ -54,6 +54,22 @@ animation speed
       speed : 500,  
     },
 
+buttonStyle
+
+    FBS:{
+      buttonStyle:{
+        width:60,
+        height:60,
+        fontSize:30
+      },
+    },
+
+animation direction
+    // up down right left
+    FBS:{
+      effect : 'up',  
+    },
+
 Image
 -----
 ![img](https://github.com/sujkh85/ReactFloatButton/blob/master/demo.png?raw=true)
