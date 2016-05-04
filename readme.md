@@ -64,8 +64,8 @@ buttonStyle
       },
     },
 
-animation direction
-    // up down right left
+animation direction  (up down left right)
+
     FBS:{
       effect : 'up',  
     },
