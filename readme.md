@@ -1,3 +1,7 @@
+Demo
+--------
+[jsFiddle - http://jsfiddle.net/eu81273/b9Pnw/](https://jsfiddle.net/sujkh/wdL4bL46/2/)
+
 Start
 ----------
     git clone https://github.com/sujkh85/ReactFloatingButton.git
@@ -74,7 +78,3 @@ Image
 -----
 ![img](https://github.com/sujkh85/ReactFloatButton/blob/master/demo.png?raw=true)
 ![img2](https://github.com/sujkh85/ReactFloatButton/blob/master/demo2.png?raw=true)
-
-Demo
---------
-[jsFiddle - http://jsfiddle.net/eu81273/b9Pnw/](https://jsfiddle.net/sujkh/wdL4bL46/2/)
