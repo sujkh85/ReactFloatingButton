@@ -49,9 +49,9 @@ export var FloatingButtonMain = React.createClass({
       fontSize:30
     },
     labelSetting:{
-      labelStyle:{color:'blue'},
-      labelPostion:'up',
-      labelDistance:100
+      labelStyle:{color:'#4dd0e1'},
+      labelPostion:'left',
+      labelDistance:130
     },
     //up down right left effect
     effect:'up'
@@ -195,9 +195,14 @@ export var FloatingButtonChildren = React.createClass({
     //default labelStyles
     var labelStyles = {
       display:'none',
-      color:'red',
+      color:'#4dd0e1',
       position:'fixed',
-      boxShadow: '10px 10px 20px 5px grey'
+      boxShadow: '10px 10px 20px 5px grey',
+      border:'5px solid white',
+      borderRadius:10,
+      height:30,
+      width:120,
+      textAlign:'center'
     }
 
     var doneLabelStyles = Object.assign({}, labelStyles, this.props.labelStyle);

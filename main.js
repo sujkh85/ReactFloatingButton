@@ -21,9 +21,9 @@ var Main = React.createClass({
       fontSize:30
     },
     labelSetting:{
-      labelStyle:{color:'blue'},
-      labelPostion:'up',
-      labelDistance:100
+      labelStyle:{color:'#4dd0e1'},
+      labelPostion:'left',
+      labelDistance:160
     },
     //up down right left effect
     effect:'up'
@@ -40,10 +40,12 @@ var Main = React.createClass({
         <div id='floatingPostion' style={{width:1,height:1,position:'fixed',bottom:200,right:200}}></div>
 
         <FloatingButtonContainer targetId='floatingPostion'>
+        {/*only one mainButton */}
           <FloatingButtonMain
-            style={this.FBS.buttonStyle} onClick={this.actionFloatButton}
+            style={this.FBS.buttonStyle}
             FBS={this.FBS}
             />
+        {/*max 99*/}
           <FloatingButtonChildren
             style={this.FBS.buttonStyle}
             iconClass='fa fa-cog' onClick={this.actionChildren1}
@@ -261,9 +263,14 @@ var FloatingButtonChildren = React.createClass({
     //default labelStyles
     var labelStyles = {
       display:'none',
-      color:'red',
+      color:'#4dd0e1',
       position:'fixed',
-      boxShadow: '10px 10px 20px 5px grey'
+      boxShadow: '10px 10px 20px 5px grey',
+      border:'5px solid white',
+      borderRadius:10,
+      height:30,
+      width:120,
+      textAlign:'center'
     }
 
     var doneLabelStyles = Object.assign({}, labelStyles, this.props.labelStyle);

@@ -20,11 +20,16 @@ var Main = React.createClass({
     childrenLength : 0,
     //userSetting
     buttonDistance : 80,
-    speed :500,
+    speed :300,
     buttonStyle:{
       width:60,
       height:60,
       fontSize:30
+    },
+    labelSetting:{
+      labelStyle:{color:'#4dd0e1'},
+      labelPostion:'left',
+      labelDistance:160
     },
     //up down right left effect
     effect:'up'
@@ -32,13 +37,16 @@ var Main = React.createClass({
   render(){
     return(
       <div>
+          {/* floatingButton Postion */}
         <div id='floatingPostion' style={{width:1,height:1,position:'fixed',bottom:200,right:200}}></div>
-
+            {/* Please put targetId */}
           <FloatingButtonContainer targetId='floatingPostion'>
+            {/*only one mainButton */}
             <FloatingButtonMain
-              style={this.FBS.buttonStyle} onClick={this.actionFloatButton}
+              style={this.FBS.buttonStyle}
               FBS={this.FBS}
               />
+            {/*Please put childrenButton max 20 */}
             <FloatingButtonChildren
               style={this.FBS.buttonStyle}
               iconClass='fa fa-cog' onClick={this.actionChildren1}
