@@ -210,7 +210,7 @@ export var FloatingButtonChildren = React.createClass({
     var iconClass = this.props.iconClass || 'fa fa-bolt';
 
     return(
-        <div style={doneStyles} onClick={this.actionFloatButton} className={this.props.className} >
+        <div style={doneStyles} onClick={onClick={this.props.onClick} className={this.props.className} >
           <div style={{display:'table-cell',verticalAlign:'middle',textAlign:'center'}}>
             <i className={iconClass}
               aria-hidden="true"
